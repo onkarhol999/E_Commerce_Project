@@ -26,4 +26,13 @@ public class ProductService {
     public Product getProdcutById(Integer id) {
         return repo.findById(id).get();
     }
+
+    public List<Product> addMultipleProducts(List<Product> products) {
+        return repo.saveAll(products);
+    }
+
+    public List<Product> searchProducts(String keyword) {
+        return repo.searchProducts(keyword);
+    }
+
 }

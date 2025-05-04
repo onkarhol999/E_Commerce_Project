@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:5173/")
 public class ProductController {
 
     @Autowired
@@ -26,5 +27,15 @@ public class ProductController {
     @GetMapping("/product/{id}")
     public Product getProductById(@PathVariable Integer id){
         return service.getProdcutById(id);
+    }
+
+    @PostMapping("/addProductArr")
+    public List<Product> addMultipleProducts(@RequestBody List<Product> products) {
+        return service.addMultipleProducts(products);
+    }
+
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam String keyword) {
+        return service.searchProducts(keyword);
     }
 }

@@ -13,7 +13,7 @@ public class Product {
     private Float price;
     private String brand;
     @Enumerated(EnumType.STRING) // Store Enum as a readable string, not ordinal number
-    private ProductType anEnum;
+    private ProductType productType;
     private String image;
 
     public Product(Integer id, String name, String description, Float price, String brand, ProductType anEnum, String image) {
@@ -22,7 +22,7 @@ public class Product {
         this.description = description;
         this.price = price;
         this.brand = brand;
-        this.anEnum = anEnum;
+        this.productType = anEnum;
         this.image = image;
     }
 
@@ -70,18 +70,21 @@ public class Product {
     }
 
     public ProductType getAnEnum() {
-        return anEnum;
+        return productType;
     }
 
-    public void setAnEnum(ProductType anEnum) {
-        this.anEnum = anEnum;
+    public ProductType getProductType() {
+        return productType;
     }
-
-    public String getImage() {
-        return image;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getImage() {
+        return image;
     }
 }
